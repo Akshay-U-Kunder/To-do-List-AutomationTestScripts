@@ -9,11 +9,11 @@ describe("To-Do list Application test", () => {
 
   it("Test for Page Header and image", () => {
     cy.get("img[src='images/icon.png']").should("be.visible")
-    cy.get("div[class='todo-app'] h1").contains("To-Do List")
+    cy.get("div > .todo-app h1").contains("To-Do List")
   })
 
   it("Add task and verify in list", () => {
-    cy.get("#task-input").type("Test 1")
+    cy.get("[type='text']").type("Test 1")
     cy.get("#add-task-btn").click()
 
     cy.get("li:nth-child(1)").contains("Test 1")
